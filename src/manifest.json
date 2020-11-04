@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "name": "Programming quotes",
+  "description": "Extension for Programming quotes",
+  "version": "1.0",
+  "background": {
+    "page": "background.html"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "https://programming-quotes-api.herokuapp.com/*"
+  ],
+  "browser_action": {
+    "default_title": "Programming Quotes",
+    "default_icon": "icon48.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+      "js": ["contentScript.bundle.js"],
+      "css": ["content.styles.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    "content.styles.css",
+    "icon16.png",
+    "icon48.png",
+    "icon128.png"
+  ],
+  "icons":{
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
