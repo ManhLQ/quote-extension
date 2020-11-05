@@ -10,14 +10,20 @@ class Popup extends Component {
       quote: '',
       author: ''
     }
+
+    this.getQuote();
   }
 
-  handleClick = async (e) => {
-    e.preventDefault();
+  getQuote =  async () => {
     const response = await randomQuote();
     const quote = response['en'];
     const author = response['author'];
     this.setState((state, props) => ({quote, author}));
+  }
+
+  handleClick = (e) => {
+    e.preventDefault();
+    this.getQuote();
   }
 
   render() {

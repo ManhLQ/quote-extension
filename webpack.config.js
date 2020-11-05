@@ -18,7 +18,7 @@ const webpack = require('webpack'),
   ];
 
   var options = {
-    mode: 'development',
+    mode: 'production',
     entry: {
       options: path.join(__dirname, 'src', 'pages', 'Options', 'index.js'),
       popup: path.join(__dirname, 'src', 'pages', 'Popup', 'index.js'),
