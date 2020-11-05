@@ -1,10 +1,10 @@
-const webpack = require('webpack'),
-  path = require('path'),
-  { CleanWebpackPlugin } = require('clean-webpack-plugin'),
-  CopyWebpackPlugin = require('copy-webpack-plugin'),
-  HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-  var fileExtensions = [
+  const fileExtensions = [
     'jpg',
     'jpeg',
     'png',
@@ -17,13 +17,13 @@ const webpack = require('webpack'),
     'woff2',
   ];
 
-  var options = {
+  const options = {
     mode: 'production',
     entry: {
       options: path.join(__dirname, 'src', 'pages', 'Options', 'index.js'),
       popup: path.join(__dirname, 'src', 'pages', 'Popup', 'index.js'),
       background: path.join(__dirname, 'src', 'pages', 'Background', 'index.js'),
-      contentScript: path.join(__dirname, 'src', 'pages', 'Content', 'index.js'),
+      // contentScript: path.join(__dirname, 'src', 'pages', 'Content', 'index.js'),
     },
     output: {
       path: path.resolve(__dirname, 'build'),
@@ -118,16 +118,6 @@ const webpack = require('webpack'),
         template: path.join(__dirname, 'src', 'pages', 'Popup', 'index.html'),
         filename: 'popup.html',
         chunks: ['popup'],
-      }),
-      new HtmlWebpackPlugin({
-        template: path.join(__dirname, 'src', 'pages', 'Background', 'index.html'),
-        filename: 'background.html',
-        chunks: ['background'],
-      }),
-      new HtmlWebpackPlugin({
-        template: path.join(__dirname, 'src', 'pages', 'Content', 'index.html'),
-        filename: 'content.html',
-        chunks: ['content'],
       }),
     ]
   };
